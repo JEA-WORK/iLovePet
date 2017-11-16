@@ -5,8 +5,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>ufg-inf-pw</groupId>
-  <artifactId>ufg-inf-pw-2017-2</artifactId>
+  <groupId>ilovepet</groupId>
+  <artifactId>ilovepet</artifactId>
   <version>1.0-SNAPSHOT</version>
   <!-- Projeto WEB -->
   <packaging>war</packaging>
