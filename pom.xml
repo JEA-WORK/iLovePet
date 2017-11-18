@@ -17,8 +17,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
-    <resteasy.version>3.1.4.Final</resteasy.version>
-    <derby.version>10.14.1.0</derby.version>
+   
   </properties>
 
   <dependencies>
@@ -28,32 +27,21 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <!-- Para não "empacotar" a biblioteca com a aplicação. O application server já possui essa biblioteca.  -->
-      <scope>provided</scope>
-    </dependency>
-    <!-- Para usar REST com JAX-RS e RestEasy. -->
-    <dependency>
-      <groupId>org.jboss.resteasy</groupId>
-      <artifactId>resteasy-servlet-initializer</artifactId>
-      <version>${resteasy.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.resteasy</groupId>
-      <artifactId>resteasy-jackson-provider</artifactId>
-      <version>${resteasy.version}</version>
-    </dependency>
-    <!-- Para usar o driver do banco de dados Derby. -->
-    <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derbyclient</artifactId>
-      <version>${derby.version}</version>
-    </dependency>
+       <scope>provided</scope>
+    </dependency>  
+    	<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.1.4</version>
+		</dependency>
+		
     <!-- Para usar JPA com Hibernate. -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.3.1.Final</version>
-    </dependency>
-  </dependencies>
+   	    <dependency>
+	      <groupId>org.hibernate</groupId>
+	      <artifactId>hibernate-entitymanager</artifactId>
+	      <version>4.3.1.Final</version>
+	    </dependency>
+   </dependencies>
 
   <build>
     <plugins>
@@ -65,46 +53,7 @@
         <configuration>
           <port>9090</port>
         </configuration>
-      </plugin>
-      <!-- Para executar o banco de dados Derby pelo Maven. -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
-        <executions>
-          <execution>
-            <id>derby-start</id>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <includePluginDependencies>true</includePluginDependencies>
-              <workingDirectory>${basedir}</workingDirectory>
-              <mainClass>org.apache.derby.drda.NetworkServerControl</mainClass>
-              <arguments>
-                <argument>start</argument>
-                <argument>-p</argument>
-                <argument>1527</argument>
-                <argument>-noSecurityManager</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>${derby.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbynet</artifactId>
-            <version>${derby.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-    </plugins>
-  </build>
-
+      </plugin>  
+    </plugins> 
+  </build> 
 </project>

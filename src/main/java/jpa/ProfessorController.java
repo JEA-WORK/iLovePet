@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/jpa/professores")
 public class ProfessorController extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7941663957863098594L;
+
 	private String valor(HttpServletRequest req, String param, String padrao) {
 		String result = req.getParameter(param);
 		if (result == null) {
