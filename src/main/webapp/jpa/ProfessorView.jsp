@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <%@page import="java.util.ArrayList"%>
-<%@page import="jpa.Professor"%>
+<%@page import="jpa.Pet"%>
 <html>
 
   <head>
-    <title>Professores</title>
+    <title>Pets</title>
   </head>
 
   <body>
-    <h1>Professores</h1>
+    <h1>Pet</h1>
     <form>
       <table>
         <tr>
-          <td>Matrícula</td>
-          <td><input name="matricula"></td>
+          <td>Cod</td>
+          <td><input name="codigo"></td>
         </tr>
         <tr>
           <td>Nome:</td>
@@ -28,19 +28,19 @@
     <hr>
     <table border="1">
       <tr>
-        <th>Matrícula</th>
+        <th>Codigo</th>
         <th>Nome</th>
         <th>Ações</th>
       </tr>
       <%
-      ArrayList<Professor> professores =
-        (ArrayList<Professor>) request.getAttribute("professores");
-      for (Professor professor : professores) {
+      ArrayList<Pet> pets =
+        (ArrayList<Pet>) request.getAttribute("pets");
+      for (Pet pet : pets) {
       %>
       <tr>
-        <td><%=professor.getMatricula()%></td>
-        <td><%=professor.getNome()%></td>
-        <td><a href="professores?operacao=excluir&matricula=<%=professor.getMatricula()%>">Excluir</a></td>
+        <td><%=pet.getCod()%></td>
+        <td><%=pet.getNome()%></td>
+        <td><a href="pets?operacao=excluir&cod=<%=pet.getCod()%>">Excluir</a></td>
       </tr>
       <%}%>
     </table>
