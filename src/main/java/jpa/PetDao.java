@@ -13,7 +13,7 @@ import javax.persistence.TypedQuery;
 public class PetDao {
 
 	//"pets" é o nome da unidade de persistência no "persistence.xml".
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pets");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pet");
 
 	public static void inclui(String cod, String nome, String apelido, String raca, String descricao, String dono, String telefone) {
 		// Obter "conexão".

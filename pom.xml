@@ -17,7 +17,6 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
-   
   </properties>
 
   <dependencies>
@@ -27,7 +26,7 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <!-- Para não "empacotar" a biblioteca com a aplicação. O application server já possui essa biblioteca.  -->
-       <scope>provided</scope>
+        <scope>provided</scope>
     </dependency>  
     	<dependency>
 			<groupId>org.postgresql</groupId>

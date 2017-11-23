@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/jpa/pets")
+@WebServlet("/jpa/Pet")
 public class PetController extends HttpServlet {
 	/**
 	 * 

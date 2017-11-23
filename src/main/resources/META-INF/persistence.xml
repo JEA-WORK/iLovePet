@@ -5,18 +5,17 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
   version="2.1">
 
-  <persistence-unit name="pets" transaction-type= "RESOURCE_LOCAL">
+  <persistence-unit name="pet">
     <!-- Para definir o Hibernate como implementação do JPA. -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     
     <class>jpa.Pet</class>
     <properties>
-     
       <!-- Driver JDBC do Postgres. -->
       <property name="hibernate.connection.driver_class"
-        value="org.postgresql.Driver"/>
+        value="org.postgresql.Driver" />
       <property name="hibernate.connection.url"
-        value="jdbc:postgresql://localhost:5432/hibernatedb"/>
+        value="jdbc:postgresql://localhost:5432/hibernatedb" />
         <property name="hibernate.connection.username" value="postgres" />
         <property name="hibernate.connection.password" value="12345" />
      
