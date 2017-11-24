@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/jpa/Pet")
+@WebServlet("/Pet")
 public class PetController extends HttpServlet {
 	/**
 	 * 
@@ -54,7 +54,7 @@ public class PetController extends HttpServlet {
 			req.setAttribute("msg", msg);
 			req.setAttribute("pets", PetDao.listar());
 			
-			req.getRequestDispatcher("ProfessorView.jsp").forward(req, resp);
+			req.getRequestDispatcher("PetView.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace(resp.getWriter());
 			}

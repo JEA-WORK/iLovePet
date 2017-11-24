@@ -33,8 +33,8 @@
         <th>Ações</th>
       </tr>
       <%
-      ArrayList<Pet> pets =
-        (ArrayList<Pet>) request.getAttribute("pets");
+      @SuppressWarnings("unchecked")
+      ArrayList<Pet> pets = (ArrayList<Pet>) request.getAttribute("pets");
       for (Pet pet : pets) {
       %>
       <tr>
