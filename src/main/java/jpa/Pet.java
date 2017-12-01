@@ -19,6 +19,7 @@ public class Pet {
 	public void setCod(String cod) {
 		this.cod = cod;
 	}
+	//String c = Integer.parseInt(cod);
 	public String getNome() {
 		return nome;
 	}

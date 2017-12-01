@@ -37,14 +37,27 @@ public class PetController extends HttpServlet {
 			String dono = valor(req, "dono", "");
 			String telefone = valor(req, "telefone", "");
 			
+			Pet pet = new Pet();
+			
+			pet.setCod(cod);
+			pet.setNome(nome);
+			pet.setApelido(apelido);
+			pet.setRaca(raca);
+			pet.setDescricao(descricao);
+			pet.setTelefone(telefone);
+			pet.setDono(dono);
+			
 			if (op.equals("incluir")) {
-				PetDao.inclui(cod, nome, apelido, raca, descricao, dono, telefone);
+				PetDao.getInstance().inclui(pet);
 				msg = "Inclusão realizada com sucesso.";
+				
 			} else if (op.equals("alterar")) {
-				PetDao.alterar(cod, nome);
+				PetDao.getInstance().alterar(pet);
 				msg = "Alteração realizada com sucesso.";
+				
 			} else if (op.equals("excluir")) {
-				PetDao.excluir(cod);
+				//int i = Integer.parseInt(cod);
+				PetDao.getInstance().remove(pet);
 				msg = "Exclusão realizada com sucesso.";
 			} else if (op.equals("")) {
 				msg = "";
@@ -52,7 +65,7 @@ public class PetController extends HttpServlet {
 				throw new IllegalArgumentException("Operação \"" + op + "\" não suportada.");
 			}
 			req.setAttribute("msg", msg);
-			req.setAttribute("pets", PetDao.listar());
+			req.setAttribute("pets", PetDao.getInstance().findAll());
 			
 			req.getRequestDispatcher("PetView.jsp").forward(req, resp);
 		} catch (Exception e) {
