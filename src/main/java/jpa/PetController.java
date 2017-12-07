@@ -32,7 +32,7 @@ public class PetController extends HttpServlet {
 			String cod = valor(req, "cod", "");
 			String nome = valor(req, "nome", "");
 			String apelido = valor(req, "apelido", "");
-			String raca = valor(req, "raça", "");
+			String raca = valor(req, "raca", "");
 			String descricao = valor(req, "descricao", "");
 			String dono = valor(req, "dono", "");
 			String telefone = valor(req, "telefone", "");

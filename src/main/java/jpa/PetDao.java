@@ -5,6 +5,8 @@ package jpa;
   import javax.persistence.EntityManager;
   import javax.persistence.EntityManagerFactory;
   import javax.persistence.Persistence;
+
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
    
   public class PetDao {
    
@@ -44,6 +46,7 @@ package jpa;
                      } catch (Exception ex) {
                               ex.printStackTrace();
                               entityManager.getTransaction().rollback();
+                              System.out.println("Não foi possível gravar no banco.");
                      }
                      entityManager.close();
            }
@@ -58,6 +61,7 @@ package jpa;
                      } catch (Exception ex) {
                               ex.printStackTrace();
                               entityManager.getTransaction().rollback();
+                              System.out.println("Não foi possível alterar no banco.");
                      }
                      entityManager.close();
            }
@@ -72,18 +76,9 @@ package jpa;
                      } catch (Exception ex) {
                               ex.printStackTrace();
                               entityManager.getTransaction().rollback();
+                              System.out.println("Não foi possível remover do banco.");
                      }
                      entityManager.close();
            }
-   
-          /* public void excluir(final int id) {
-                     try {
-                              Pet pet = getById(id);
-                              remove(pet);
-                     } catch (Exception ex) {
-                              ex.printStackTrace();
-                     }
-           }
-           */
-   
+  
   }
